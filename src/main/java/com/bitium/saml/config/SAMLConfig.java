@@ -15,6 +15,8 @@ public class SAMLConfig {
     public static final String LOGIN_URL_SETTING = "saml2.loginUrl";
     public static final String LOGOUT_URL_SETTING = "saml2.logoutUrl";
     public static final String UID_ATTRIBUTE_SETTING = "salm2.uidAttribute";
+    public static final String NAME_ATTRIBUTE_SETTING = "salm2.nameAttribute";
+    public static final String MAIL_ATTRIBUTE_SETTING = "salm2.mailAttribute";
     public static final String X509_CERTIFICATE_SETTING = "saml2.x509Certificate";
     public static final String IDP_REQUIRED_SETTING = "saml2.idpRequired";
     public static final String REDIRECT_URL_SETTING = "saml2.redirectUrl";
@@ -39,6 +41,14 @@ public class SAMLConfig {
 
     public void setUidAttribute(String uidAttribute) {
         pluginSettings.put(UID_ATTRIBUTE_SETTING, uidAttribute);
+    }
+
+    public void setNameAttribute(String nameAttribute) {
+        pluginSettings.put(NAME_ATTRIBUTE_SETTING, nameAttribute);
+    }
+
+    public void setMailAttribute(String mailAttribute) {
+        pluginSettings.put(MAIL_ATTRIBUTE_SETTING, mailAttribute);
     }
 
     public void setX509Certificate(String x509Certificate) {
@@ -103,6 +113,14 @@ public class SAMLConfig {
 
     public String getUidAttribute() {
         return StringUtils.defaultString((String)pluginSettings.get(UID_ATTRIBUTE_SETTING), "NameID");
+    }
+
+    public String getNameAttribute() {
+        return StringUtils.defaultString((String)pluginSettings.get(NAME_ATTRIBUTE_SETTING), "cn");
+    }
+
+    public String getMailAttribute() {
+        return StringUtils.defaultString((String)pluginSettings.get(MAIL_ATTRIBUTE_SETTING), "mail");
     }
 
     public String getX509Certificate() {
